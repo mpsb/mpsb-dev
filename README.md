@@ -1,1 +1,1 @@
-# [UNDER CONSTRUCTION] Personal Website + Blog.
+# [UNDER CONSTRUCTION] Personal Website.
