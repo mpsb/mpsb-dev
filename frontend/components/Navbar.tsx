@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 
 const StyledNavbar = styled.nav`
@@ -15,6 +16,7 @@ const StyledNavbar = styled.nav`
 const StyledUl = styled.ul`
   list-style: none;
   display: inline-flex;
+  align-items: center;
   gap: 48px;
   padding: 0;
 `;
@@ -40,18 +42,18 @@ export default function Navbar() {
           <Link href="/work">work</Link>
         </StyledLi>
         <StyledLi>
-          <Link href="/about" target="_blank">
-            about
+          <Link href="https://www.github.com/mpsb" target="_blank">
+            <Image src="/brand/github.png" alt="Link to Matthew's github." layout="fixed" width={32} height={32}/>
           </Link>
         </StyledLi>
         <StyledLi>
-          <Link href="/blog" target="_blank">
-            blog
+          <Link href="https://www.linkedin.com/in/matthew-b-6614a811b/" target="_blank">
+          <Image src="/brand/linkedin.png" alt="Link to Matthew's LinkedIn." layout="fixed" width={32} height={32}/>
           </Link>
         </StyledLi>
         <StyledLi>
-          <Link href="/work" target="_blank">
-            work
+          <Link href="https://twitter.com/_mpsb" target="_blank">
+          <Image src="/brand/twitter.png" alt="Link to Matthew's Twitter." layout="fixed" width={32} height={32}/>
           </Link>
         </StyledLi>
       </StyledUl>
