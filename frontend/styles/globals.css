@@ -17,6 +17,98 @@ a {
   box-sizing: border-box;
 }
 
+.third-accordion-line-to-close {
+  animation: third-accordion-line-rotate-to-close 0.5s ease 1 forwards;
+}
+
+.close-to-third-accordion-line {
+  animation: close-to-third-accordion-line 0.5s ease 1 forwards;
+}
+
+@keyframes third-accordion-line-rotate-to-close {
+  0% {
+    transform: rotate(0) translateY(0) translateX(0);
+    width: 16px;
+  }
+
+  100% {
+    transform: rotate(45deg) translateY(12px) translateX(10px);
+    width: 32px;
+  }
+}
+
+@keyframes close-to-third-accordion-line {
+  0% {
+    transform: rotate(45deg) translateY(12px) translateX(10px);
+    width: 32px;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0) translateX(0);
+    width: 32px;
+  }
+}
+
+.middle-line-to-close {
+  animation: middle-line-to-close 0.5s ease 1 forwards;
+}
+
+.close-to-middle-line {
+  animation: close-to-middle-line 0.5s ease 1 forwards;
+}
+
+@keyframes middle-line-to-close {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes close-to-middle-line {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.first-accordion-line-to-close {
+  animation: first-accordion-line-rotate-to-close 0.5s ease 1 forwards;
+}
+
+.close-to-first-accordion-line {
+  animation: close-to-first-accordion-line 0.5s ease 1 forwards;
+}
+
+@keyframes first-accordion-line-rotate-to-close {
+  0% {
+    transform: rotate(0) translateY(0) translateX(0);
+    width: 16px;
+  }
+
+  100% {
+    transform: rotate(-45deg) translateY(-6px) translateX(6px);
+    width: 32px;
+  }
+}
+
+@keyframes close-to-first-accordion-line {
+  0% {
+    transform: rotate(-45deg) translateY(-5px) translateX(6px);
+    width: 32px;
+  }
+
+  100% {
+    transform: rotate(0) translateY(0) translateX(0);
+    width: 32px;
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

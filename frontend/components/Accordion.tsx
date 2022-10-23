@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { BREAKPOINTS } from "@constants";
 
@@ -21,10 +21,6 @@ const AccordionContainer = styled.button`
     width: 24px;
   }
 
-  :hover > #third-accordion-line {
-    width: 16px;
-  }
-
   :hover {
     opacity: 0.7;
   }
@@ -38,13 +34,36 @@ const AccordionLine = styled.div`
 `;
 
 export default function Accordion() {
-  function handleAccordionClick() {}
+  const [isAccordionMenuOpen, setIsAccordionMenuOpen] = useState(false);
+
+  function handleAccordionClick() {
+    setIsAccordionMenuOpen(!isAccordionMenuOpen);
+  }
 
   return (
     <AccordionContainer onClick={handleAccordionClick}>
-      <AccordionLine />
-      <AccordionLine id="second-accordion-line" />
-      <AccordionLine id="third-accordion-line" />
+      <AccordionLine
+        id="third-accordion-line"
+        className={
+          isAccordionMenuOpen
+            ? "third-accordion-line-to-close"
+            : "close-to-third-accordion-line"
+        }
+      />
+      <AccordionLine
+        id="second-accordion-line"
+        className={
+          isAccordionMenuOpen ? "middle-line-to-close" : "close-to-middle-line"
+        }
+      />
+      <AccordionLine
+        id="first-accordion-line"
+        className={
+          isAccordionMenuOpen
+            ? "first-accordion-line-to-close"
+            : "close-to-first-accordion-line"
+        }
+      />
     </AccordionContainer>
   );
 }
