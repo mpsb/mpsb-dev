@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import Accordion from "@components/Accordion";
-import { BREAKPOINTS } from "@constants";
+import { BREAKPOINTS } from "@constants/index";
 
 const StyledNavbar = styled.nav`
   display: flex;

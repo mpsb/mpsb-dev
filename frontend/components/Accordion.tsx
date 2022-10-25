@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { BREAKPOINTS } from "@constants";
+import MobileMenu from "@components/MobileMenu";
+import { BREAKPOINTS } from "@constants/index";
 
 const AccordionContainer = styled.button`
   display: none;
@@ -41,29 +42,34 @@ export default function Accordion() {
   }
 
   return (
-    <AccordionContainer onClick={handleAccordionClick}>
-      <AccordionLine
-        id="third-accordion-line"
-        className={
-          isAccordionMenuOpen
-            ? "third-accordion-line-to-close"
-            : "close-to-third-accordion-line"
-        }
-      />
-      <AccordionLine
-        id="second-accordion-line"
-        className={
-          isAccordionMenuOpen ? "middle-line-to-close" : "close-to-middle-line"
-        }
-      />
-      <AccordionLine
-        id="first-accordion-line"
-        className={
-          isAccordionMenuOpen
-            ? "first-accordion-line-to-close"
-            : "close-to-first-accordion-line"
-        }
-      />
-    </AccordionContainer>
+    <>
+      <AccordionContainer onClick={handleAccordionClick}>
+        <AccordionLine
+          id="third-accordion-line"
+          className={
+            isAccordionMenuOpen
+              ? "third-accordion-line-to-close"
+              : "close-to-third-accordion-line"
+          }
+        />
+        <AccordionLine
+          id="second-accordion-line"
+          className={
+            isAccordionMenuOpen
+              ? "middle-line-to-close"
+              : "close-to-middle-line"
+          }
+        />
+        <AccordionLine
+          id="first-accordion-line"
+          className={
+            isAccordionMenuOpen
+              ? "first-accordion-line-to-close"
+              : "close-to-first-accordion-line"
+          }
+        />
+      </AccordionContainer>
+      <MobileMenu isOpen={isAccordionMenuOpen} />
+    </>
   );
 }

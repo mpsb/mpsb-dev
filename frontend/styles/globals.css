@@ -78,11 +78,11 @@ a {
 }
 
 .first-accordion-line-to-close {
-  animation: first-accordion-line-rotate-to-close 0.5s ease 1 forwards;
+  animation: first-accordion-line-rotate-to-close 0.2s ease 1 forwards;
 }
 
 .close-to-first-accordion-line {
-  animation: close-to-first-accordion-line 0.5s ease 1 forwards;
+  animation: close-to-first-accordion-line 0.2s ease 1 forwards;
 }
 
 @keyframes first-accordion-line-rotate-to-close {
