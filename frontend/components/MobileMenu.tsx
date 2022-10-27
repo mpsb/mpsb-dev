@@ -13,6 +13,7 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   width: 100%;
   transition: 0.5s ease;
+  background: white;
 
   @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
     display: none;
