@@ -16,5 +16,11 @@ export interface FlexProps {
   justifyContent?: string;
   width?: string;
   padding?: string;
+  margin?: string;
+  children: ReactNode;
+}
+
+export interface ButtonProps {
+  buttonType: string;
   children: ReactNode;
 }

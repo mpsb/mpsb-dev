@@ -6,6 +6,7 @@ import Navbar from "@components/Navbar";
 import { Flex } from "@components/Flex";
 import Display from "@components/Display";
 import Subheading from "@components/Subheading";
+import Button from "@components/Button";
 
 const Home: NextPage = () => {
   return (
@@ -21,8 +22,18 @@ const Home: NextPage = () => {
             <br />
             beautiful user experiences.
           </Subheading>
+          <Flex gap={8} padding="0" margin="32px 0px">
+            <Button buttonType="primary">who you?</Button>
+            <Button buttonType="secondary">you did what?</Button>
+          </Flex>
         </Flex>
-        <Image src="/pao-gif.gif" width={770} height={780} alt="hero image" />
+        <Image
+          src="/pao-gif.gif"
+          width={770}
+          height={780}
+          objectFit="contain"
+          alt="hero image"
+        />
       </Flex>
     </>
   );

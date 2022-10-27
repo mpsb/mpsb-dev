@@ -12,6 +12,7 @@ align-items: ${props.alignItems};
 justify-content: ${props.justifyContent};
 width: ${props.width};
 padding: ${props.padding ? props.padding : "0px 64px"};
+margin: ${props.margin ? props.margin : "0"};
 
 @media only screen and (max-width: ${BREAKPOINTS.sm}px) {
     flex-direction: column;
@@ -31,6 +32,7 @@ export function Flex({
   justifyContent,
   width,
   padding,
+  margin,
   children,
 }: FlexProps) {
   return (
@@ -42,6 +44,7 @@ export function Flex({
       justifyContent={justifyContent}
       width={width}
       padding={padding}
+      margin={margin}
     >
       {children}
     </StyledFlex>
