@@ -4,7 +4,7 @@ import { TextProps } from "@constants/types";
 import { BREAKPOINTS } from "@constants/index";
 
 const StyledSubheading = styled.h2<TextProps>`
-${(props) => `
+  ${(props) => `
 font-size: 24px;
   font-weight: 400;
   font-family: "Quicksand";

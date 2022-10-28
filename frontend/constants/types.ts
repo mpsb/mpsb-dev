@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface MobileMenuProps {
   isOpen: boolean;
 }
 
 export interface TextProps {
-    textAlign?: string;
+  textAlign?: string;
   children: ReactNode;
 }
 
 export interface ContainerProps {
-    children: ReactNode;
-  }
+  children: ReactNode;
+}
 
 export interface FlexProps {
   className?: string;
@@ -27,10 +27,11 @@ export interface FlexProps {
 
 export interface ButtonProps {
   buttonType: string;
+  onClick: MouseEventHandler<HTMLElement> & Function;
   children: ReactNode;
 }
 
 export interface GridProps extends ContainerProps {
-    columns: number | string;
-    gap: number;
+  columns: number | string;
+  gap: number;
 }

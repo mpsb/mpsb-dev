@@ -6,7 +6,8 @@ import { BREAKPOINTS } from "@constants/index";
 const StyledHeading = styled.h1`
   font-size: 32px;
   font-weight: 700;
-  font-family: "Quicksand";
+  font-family: "Arimo";
+  letter-spacing: -0.045em;
   text-align: center;
   margin: 0;
 

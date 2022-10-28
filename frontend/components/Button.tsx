@@ -25,6 +25,10 @@ transition: 0.2s ease;
 `}
 `;
 
-export default function Button({ buttonType, children }: ButtonProps) {
-  return <StyledButton buttonType={buttonType}>{children}</StyledButton>;
+export default function Button({ buttonType, onClick, children }: ButtonProps) {
+  return (
+    <StyledButton buttonType={buttonType} onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 }

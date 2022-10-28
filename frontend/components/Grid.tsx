@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components';
-import { GridProps } from '@constants/types';
-import { BREAKPOINTS } from '@constants/index';
+import React from "react";
+import styled from "styled-components";
+import { GridProps } from "@constants/types";
+import { BREAKPOINTS } from "@constants/index";
 
 const StyledGrid = styled.div<GridProps>`
-${(props) => `
+  ${(props) => `
 display: grid;
 grid-template-columns: ${props.columns};
 gap: ${props.gap}px;
@@ -15,7 +15,11 @@ gap: ${props.gap}px;
 `}
 `;
 
-export default function Grid({children, columns, gap}: GridProps) {
-    const gridTemplateColumns = "1fr ".repeat(columns as number);
-    return <StyledGrid columns={gridTemplateColumns as string} gap={gap}>{children}</StyledGrid>
+export default function Grid({ children, columns, gap }: GridProps) {
+  const gridTemplateColumns = "1fr ".repeat(columns as number);
+  return (
+    <StyledGrid columns={gridTemplateColumns as string} gap={gap}>
+      {children}
+    </StyledGrid>
+  );
 }

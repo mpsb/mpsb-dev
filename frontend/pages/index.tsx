@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { Flex } from "@components/Flex";
 import Display from "@components/Display";
 import Subheading from "@components/Subheading";
 import Button from "@components/Button";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   return (
     <>
       <Flex justifyContent="space-between">
@@ -20,8 +22,12 @@ const Home: NextPage = () => {
             beautiful user experiences.
           </Subheading>
           <Flex gap={8} padding="0" margin="32px 0px">
-            <Button buttonType="primary">who you?</Button>
-            <Button buttonType="secondary">you did what?</Button>
+            <Button buttonType="primary" onClick={() => router.push("/about")}>
+              who you?
+            </Button>
+            <Button buttonType="secondary" onClick={() => router.push("/work")}>
+              you did what?
+            </Button>
           </Flex>
         </Flex>
         <Image
