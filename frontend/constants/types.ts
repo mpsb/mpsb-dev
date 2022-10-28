@@ -5,8 +5,13 @@ export interface MobileMenuProps {
 }
 
 export interface TextProps {
+    textAlign?: string;
   children: ReactNode;
 }
+
+export interface ContainerProps {
+    children: ReactNode;
+  }
 
 export interface FlexProps {
   className?: string;
@@ -23,4 +28,9 @@ export interface FlexProps {
 export interface ButtonProps {
   buttonType: string;
   children: ReactNode;
+}
+
+export interface GridProps extends ContainerProps {
+    columns: number | string;
+    gap: number;
 }

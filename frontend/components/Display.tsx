@@ -5,6 +5,7 @@ import { BREAKPOINTS } from "@constants/index";
 
 const StyledDisplay = styled.h1`
   font-size: 96px;
+  letter-spacing: -0.045em;
   margin: 0;
 
   @media only screen and (max-width: ${BREAKPOINTS.xs}px) {
