@@ -58,8 +58,8 @@ export default function Navbar() {
           <Link href="/work">work</Link>
         </StyledLi>
         <StyledLi>
-          <Link href="https://www.github.com/mpsb" target="_blank" passHref>
-            <a>
+          <Link href="https://www.github.com/mpsb" passHref>
+            <a target="_blank">
               <Image
                 src="/brand/github.png"
                 alt="Link to Matthew's github."
@@ -73,10 +73,9 @@ export default function Navbar() {
         <StyledLi>
           <Link
             href="https://www.linkedin.com/in/matthew-b-6614a811b/"
-            target="_blank"
             passHref
           >
-            <a>
+            <a target="_blank">
               <Image
                 src="/brand/linkedin.png"
                 alt="Link to Matthew's LinkedIn."
@@ -88,8 +87,8 @@ export default function Navbar() {
           </Link>
         </StyledLi>
         <StyledLi>
-          <Link href="https://twitter.com/_mpsb" target="_blank" passHref>
-            <a>
+          <Link href="https://twitter.com/_mpsb" passHref>
+            <a target="_blank">
               <Image
                 src="/brand/twitter.png"
                 alt="Link to Matthew's Twitter."
