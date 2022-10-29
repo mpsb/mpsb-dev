@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { BREAKPOINTS } from "@constants/index";
 import { MobileMenuProps } from "@constants/types";
+import { useDetectOutsideClick } from "helpers";
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
   top: 150px;
   right: 0%;
   position: fixed;
-  opacity: ${(props) => (props.isOpen ? "1" : "0")};
-  visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   width: 100%;
   transition: 0.5s ease;
   background: white;
-
-  @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
-    display: none;
-  }
+  z-index: 6;
+  border: 2px solid black;
 `;
 
 const StyledUl = styled.ul`
@@ -44,24 +42,63 @@ const SocialLinksContainer = styled.div`
   margin: 24px 0px;
 `;
 
-export default function MobileMenu({ isOpen }: MobileMenuProps) {
+const MotionMobileMenuContainer = motion(MobileMenuContainer);
+const MotionStyledUl = motion(StyledUl);
+const MotionSocialLinksContainer = motion(SocialLinksContainer);
+
+const motionVariants = {
+  visible: {
+    height: 314,
+  },
+  invisible: {
+    height: 0,
+    scale: 0,
+  },
+};
+
+const menuItemsMotionVariants = {
+  visible: {
+    scale: 1,
+    transition: { delay: 0.4 },
+  },
+  invisible: {
+    scale: 0,
+  },
+};
+
+export default function MobileMenu({
+  isOpen,
+  handleMenuItemClick,
+}: MobileMenuProps) {
+  const menuContainerRef = useRef<HTMLDivElement>(null);
+  useDetectOutsideClick(menuContainerRef, handleMenuItemClick, isOpen);
+
   return (
-    <MobileMenuContainer isOpen={isOpen}>
-      <StyledUl>
-        <StyledLi>
+    <MotionMobileMenuContainer
+      variants={motionVariants}
+      animate={isOpen ? "visible" : "invisible"}
+      transition={{ duration: 0.2 }}
+      isOpen={isOpen}
+      ref={menuContainerRef}
+    >
+      <MotionStyledUl
+        variants={menuItemsMotionVariants}
+        transition={{ delay: 0.2 }}
+      >
+        <StyledLi onClick={handleMenuItemClick}>
           <Link href="/about">about</Link>
         </StyledLi>
-        <StyledLi>
+        <StyledLi onClick={handleMenuItemClick}>
           <Link href="/blog">blog</Link>
         </StyledLi>
-        <StyledLi>
+        <StyledLi onClick={handleMenuItemClick}>
           <Link href="/work">work</Link>
         </StyledLi>
-      </StyledUl>
-      <SocialLinksContainer>
+      </MotionStyledUl>
+      <MotionSocialLinksContainer variants={menuItemsMotionVariants}>
         <StyledLi>
-          <Link href="https://www.github.com/mpsb" target="_blank" passHref>
-            <a>
+          <Link href="https://www.github.com/mpsb" passHref>
+            <a target="_blank">
               <Image
                 src="/brand/github.png"
                 alt="Link to Matthew's github."
@@ -75,10 +112,9 @@ export default function MobileMenu({ isOpen }: MobileMenuProps) {
         <StyledLi>
           <Link
             href="https://www.linkedin.com/in/matthew-b-6614a811b/"
-            target="_blank"
             passHref
           >
-            <a>
+            <a target="_blank">
               <Image
                 src="/brand/linkedin.png"
                 alt="Link to Matthew's LinkedIn."
@@ -90,8 +126,8 @@ export default function MobileMenu({ isOpen }: MobileMenuProps) {
           </Link>
         </StyledLi>
         <StyledLi>
-          <Link href="https://twitter.com/_mpsb" target="_blank" passHref>
-            <a>
+          <Link href="https://twitter.com/_mpsb" passHref>
+            <a target="_blank">
               <Image
                 src="/brand/twitter.png"
                 alt="Link to Matthew's Twitter."
@@ -102,7 +138,7 @@ export default function MobileMenu({ isOpen }: MobileMenuProps) {
             </a>
           </Link>
         </StyledLi>
-      </SocialLinksContainer>
-    </MobileMenuContainer>
+      </MotionSocialLinksContainer>
+    </MotionMobileMenuContainer>
   );
 }

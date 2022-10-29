@@ -7,6 +7,7 @@ const StyledCard = styled.div`
   padding: 24px;
   cursor: pointer;
   transition: 0.2s ease;
+  background: white;
 
   :hover {
     transform: perspective(200px) translateZ(5px);

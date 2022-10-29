@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { TextProps } from "@constants/types";
 import { BREAKPOINTS } from "@constants/index";
@@ -17,6 +18,17 @@ font-size: 24px;
 `}
 `;
 
+const MotionStyledSubheading = motion(StyledSubheading);
+
 export default function Subheading({ children, textAlign }: TextProps) {
-  return <StyledSubheading textAlign={textAlign}>{children}</StyledSubheading>;
+  return (
+    <MotionStyledSubheading
+      textAlign={textAlign}
+      style={{ opacity: 0, translateX: -10 }}
+      animate={{ opacity: 1, translateX: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </MotionStyledSubheading>
+  );
 }

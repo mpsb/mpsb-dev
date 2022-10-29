@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" margin="48px 0px">
         <Flex flexDirection="column" justifyContent="center" padding="0">
           <Display>M.P. BILO</Display>
           <Subheading>

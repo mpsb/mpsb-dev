@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import MobileMenu from "@components/MobileMenu";
 import { BREAKPOINTS } from "@constants/index";
@@ -37,13 +37,19 @@ const AccordionLine = styled.div`
 export default function Accordion() {
   const [isAccordionMenuOpen, setIsAccordionMenuOpen] = useState(false);
 
+  const accordionRef = useRef<HTMLButtonElement>(null);
+
   function handleAccordionClick() {
+    setIsAccordionMenuOpen(!isAccordionMenuOpen);
+  }
+
+  function handleMenuItemClick() {
     setIsAccordionMenuOpen(!isAccordionMenuOpen);
   }
 
   return (
     <>
-      <AccordionContainer onClick={handleAccordionClick}>
+      <AccordionContainer onClick={handleAccordionClick} ref={accordionRef}>
         <AccordionLine
           id="third-accordion-line"
           className={
@@ -69,7 +75,10 @@ export default function Accordion() {
           }
         />
       </AccordionContainer>
-      <MobileMenu isOpen={isAccordionMenuOpen} />
+      <MobileMenu
+        isOpen={isAccordionMenuOpen}
+        handleMenuItemClick={handleMenuItemClick}
+      />
     </>
   );
 }

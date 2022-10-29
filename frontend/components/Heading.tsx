@@ -12,7 +12,7 @@ const StyledHeading = styled.h1`
   margin: 0;
 
   @media only screen and (max-width: ${BREAKPOINTS.xs}px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 

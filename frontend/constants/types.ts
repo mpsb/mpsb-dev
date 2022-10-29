@@ -1,7 +1,8 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { MouseEventHandler, ReactNode, RefObject } from "react";
 
 export interface MobileMenuProps {
   isOpen: boolean;
+  handleMenuItemClick?: () => void;
 }
 
 export interface TextProps {
