@@ -36,3 +36,15 @@ export interface GridProps extends ContainerProps {
   columns: number | string;
   gap: number;
 }
+
+export type Article = {
+  id: number;
+  attributes: {
+    createdAt: string;
+    description: string;
+    publishedAt: string;
+    slug: string;
+    title: string;
+    updatedAt: string;
+  };
+};

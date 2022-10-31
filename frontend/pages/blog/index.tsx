@@ -6,8 +6,10 @@ import Card from "@components/Card";
 import Subheading from "@components/Subheading";
 import Heading from "@components/Heading";
 import Grid from "@components/Grid";
+import { Article } from "@constants/types";
 
-const Blog: NextPage = () => {
+const Blog: NextPage = (props: any) => {
+  console.log(props);
   return (
     <>
       <Flex
@@ -20,51 +22,45 @@ const Blog: NextPage = () => {
       </Flex>
       <Flex>
         <Grid columns={3} gap={16}>
-          <Card>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              padding="0"
-              gap={16}
-            >
-              <Heading>Why you&apos;re not a 10x developer</Heading>
-              <Subheading textAlign="center">
-                So what do I do to become one then?
-              </Subheading>
-            </Flex>
-          </Card>
-          <Card>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              padding="0"
-              gap={16}
-            >
-              <Heading>
-                Cybersecurity in Education is Probably Easy Money
-              </Heading>
-              <Subheading textAlign="center">
-                Being a hero has never been this lucrative.
-              </Subheading>
-            </Flex>
-          </Card>
-          <Card>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              padding="0"
-              gap={16}
-            >
-              <Heading>Finding It Hard Getting a Job? Freelance.</Heading>
-              <Subheading textAlign="center">
-                Experience AND I get paid for it? Sign me up.
-              </Subheading>
-            </Flex>
-          </Card>
+          {props.allArticles.data.map((blog: Article) => (
+            <Card key={blog.id}>
+              <Flex
+                flexDirection="column"
+                alignItems="center"
+                padding="0"
+                gap={16}
+              >
+                <Heading>{blog.attributes.title}</Heading>
+                <Subheading textAlign="center">
+                  {blog.attributes.description}
+                </Subheading>
+              </Flex>
+            </Card>
+          ))}
         </Grid>
       </Flex>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  try {
+    let allArticles = Object;
+    const res = await fetch("http://localhost:1337/api/articles", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        allArticles = data;
+      });
+    return { props: { allArticles } };
+  } catch (errorArticles) {
+    return { props: { errorArticles } };
+  }
+}
 
 export default Blog;
