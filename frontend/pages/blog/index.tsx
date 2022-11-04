@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import React from "react";
 import { Flex } from "@components/Flex";
 import Display from "@components/Display";
@@ -9,7 +10,8 @@ import Grid from "@components/Grid";
 import { Article } from "@constants/types";
 
 const Blog: NextPage = (props: any) => {
-  console.log(props);
+  const router = useRouter();
+
   return (
     <>
       <Flex
@@ -21,9 +23,13 @@ const Blog: NextPage = (props: any) => {
         <Subheading>Musings of a software engineer.</Subheading>
       </Flex>
       <Flex>
-        <Grid columns={3} gap={16}>
-          {props.allArticles.data.map((blog: Article) => (
-            <Card key={blog.id}>
+        <Grid columns={3} gap={16} areas={`"featured-post featured-post secondary-post" "normal-post-2 normal-post-3 normal-post-3" "normal-post-4 normal-post-4 normal-post-4"`}>
+          {props.allArticles.data.map((blog: Article, index: number) => (
+            <Card
+              key={blog.id}
+              onClick={() => router.push(`/blog/${blog.attributes.slug}`)}
+              className={index === 0 ? 'featured-post' : index === 1 ? 'secondary-post' : `normal-post-${index}`}
+            >
               <Flex
                 flexDirection="column"
                 alignItems="center"
@@ -54,7 +60,6 @@ export async function getServerSideProps() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         allArticles = data;
       });
     return { props: { allArticles } };
