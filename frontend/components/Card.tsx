@@ -1,5 +1,5 @@
 import { ContainerProps } from "@constants/types";
-import React from "react";
+import React, {HTMLAttributes} from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -16,6 +16,6 @@ const StyledCard = styled.div`
   }
 `;
 
-export default function Card({ children }: ContainerProps) {
-  return <StyledCard>{children}</StyledCard>;
+export default function Card({ children, onClick, className }: HTMLAttributes<HTMLDivElement> & ContainerProps) {
+  return <StyledCard onClick={onClick} className={className}>{children}</StyledCard>;
 }
