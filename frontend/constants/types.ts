@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode, RefObject } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface MobileMenuProps {
   isOpen: boolean;
@@ -12,6 +12,7 @@ export interface TextProps {
 
 export interface ContainerProps {
   children: ReactNode;
+  onClick?: () => void;
 }
 
 export interface FlexProps {
@@ -35,6 +36,9 @@ export interface ButtonProps {
 export interface GridProps extends ContainerProps {
   columns: number | string;
   gap: number;
+  areas?: string;
+  gridAreaClasses?: string;
+  responsiveGridTemplateAreas?: string;
 }
 
 export type Article = {
@@ -47,4 +51,18 @@ export type Article = {
     title: string;
     updatedAt: string;
   };
+};
+
+export type ArticleMeta = {
+  pagination: Object;
+};
+
+export type allArticles = {
+  data: Array<Article>;
+  meta: Array<ArticleMeta>;
+};
+
+export type BlogParams = {
+  slug: string;
+  id: number;
 };
