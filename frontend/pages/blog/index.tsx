@@ -9,6 +9,7 @@ import Heading from "@components/Heading";
 import Grid from "@components/Grid";
 import { Article } from "@constants/types";
 
+
 const Blog: NextPage = (props: any) => {
   const router = useRouter();
 

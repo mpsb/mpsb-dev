@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from "react";
 import { allArticles, Article } from "@constants/types";
-import { stringify } from "querystring";
+import qs from "qs";
 
 export function useDetectOutsideClick(
   ref: RefObject<HTMLDivElement>,
@@ -61,23 +61,22 @@ export async function getAllPostIds() {
   }
 }
 
-export async function getPostData(id: number) {
-  try {
-    const res = await fetch(`http://localhost:1337/api/articles/${id}`, {
+export async function getPostData(queries: any) {
+  console.log(`http://localhost:1337/api/articles?${qs.stringify(queries)}`)
+    const res = await fetch(`http://localhost:1337/api/articles?${qs.stringify(queries)}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
-        return {
-          data
-        }
-      });
-  } catch (errorArticles) {
-    return { props: { errorArticles } };
-  }
+    
+    if (!res.ok) {
+      console.error(res.statusText);
+      throw new Error(`An error occurred please try again`);
+    }
+    const data = res.json()
+    
+    return data;
 }
 
 // for processing grid-template-areas in the Grid component. Returns the array of classes to classify each grid area, and the grid-template-areas column when window width is <= 768px
