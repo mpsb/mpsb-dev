@@ -49,10 +49,11 @@ export async function getAllPostIds() {
       .then((data) => {
         let result = data.data.map((article: Article) => {
           return {
-            params: { slug: article.attributes.slug}};
-        })
+            params: { slug: article.attributes.slug },
+          };
+        });
 
-        console.log(result)
+        console.log(result);
 
         return result;
       });
@@ -62,42 +63,54 @@ export async function getAllPostIds() {
 }
 
 export async function getPostData(queries: any) {
-  console.log(`http://localhost:1337/api/articles?${qs.stringify(queries)}`)
-    const res = await fetch(`http://localhost:1337/api/articles?${qs.stringify(queries)}`, {
+  console.log(`http://localhost:1337/api/articles?${qs.stringify(queries)}`);
+  const res = await fetch(
+    `http://localhost:1337/api/articles?${qs.stringify(queries)}`,
+    {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-    })
-    
-    if (!res.ok) {
-      console.error(res.statusText);
-      throw new Error(`An error occurred please try again`);
     }
-    const data = res.json()
-    
-    return data;
+  );
+
+  if (!res.ok) {
+    console.error(res.statusText);
+    throw new Error(`An error occurred please try again`);
+  }
+  const data = res.json();
+
+  return data;
 }
 
 // for processing grid-template-areas in the Grid component. Returns the array of classes to classify each grid area, and the grid-template-areas column when window width is <= 768px
 export function processInputAreas(areas: string | undefined) {
   let classes: Array<string> = [];
   let gridAreaClasses: string = "";
-  let responsiveGridTemplateAreas  = "";
-  let cleanAreas = areas?.split('"').filter((element: string) => element !== " ").filter((element: string) => element !== "");
+  let responsiveGridTemplateAreas = "";
+  let cleanAreas = areas
+    ?.split('"')
+    .filter((element: string) => element !== " ")
+    .filter((element: string) => element !== "");
 
   cleanAreas?.forEach((row: string) => {
-
-    classes = classes.concat(row.split(' ').filter((word: string, index: number, self: Array<string>) => self.indexOf(word) === index));
+    classes = classes.concat(
+      row
+        .split(" ")
+        .filter(
+          (word: string, index: number, self: Array<string>) =>
+            self.indexOf(word) === index
+        )
+    );
   });
 
   classes.forEach((className: string) => {
     gridAreaClasses += `.${className} {grid-area: ${className};}`;
-  })
+  });
 
   classes.forEach((className: string) => {
     responsiveGridTemplateAreas += `"${className}" `;
-  })
+  });
 
-  return {gridAreaClasses, responsiveGridTemplateAreas};
+  return { gridAreaClasses, responsiveGridTemplateAreas };
 }

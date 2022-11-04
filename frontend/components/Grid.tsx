@@ -24,10 +24,17 @@ ${props.gridAreaClasses}
 
 export default function Grid({ children, columns, gap, areas }: GridProps) {
   const gridTemplateColumns = "1fr ".repeat(columns as number);
-  const {gridAreaClasses, responsiveGridTemplateAreas} = processInputAreas(areas);
-  
+  const { gridAreaClasses, responsiveGridTemplateAreas } =
+    processInputAreas(areas);
+
   return (
-    <StyledGrid columns={gridTemplateColumns as string} gap={gap} areas={areas} gridAreaClasses={gridAreaClasses} responsiveGridTemplateAreas={responsiveGridTemplateAreas}>
+    <StyledGrid
+      columns={gridTemplateColumns as string}
+      gap={gap}
+      areas={areas}
+      gridAreaClasses={gridAreaClasses}
+      responsiveGridTemplateAreas={responsiveGridTemplateAreas}
+    >
       {children}
     </StyledGrid>
   );

@@ -9,9 +9,9 @@ export default function BlogPost(props: { postData: Article }) {
   console.log(props.postData);
   return (
     <>
-    <Flex>
-    <Display>{props.postData.attributes.title}</Display>
-    </Flex>
+      <Flex>
+        <Display>{props.postData.attributes.title}</Display>
+      </Flex>
     </>
   );
 }
@@ -26,26 +26,27 @@ export async function getStaticPaths() {
 
   const paths = posts.data.map((article: Article) => {
     return {
-      params: { slug: article.attributes.slug, id: article.id}};
+      params: { slug: article.attributes.slug, id: article.id },
+    };
   });
-  
+
   return {
     paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps(context: {params: {slug: ""}})  {
+export async function getStaticProps(context: { params: { slug: "" } }) {
   const postData = await getPostData({
     filters: {
-      slug: context.params.slug
+      slug: context.params.slug,
     },
-    populate: ["blocks"]
+    populate: ["blocks"],
   });
 
   return {
     props: {
-      postData: postData.data[0]
+      postData: postData.data[0],
     },
   };
 }
