@@ -37,31 +37,6 @@ export function useDetectOutsideClick(
   }, [ref, isOpen, desiredAction]);
 }
 
-export async function getAllPostIds() {
-  try {
-    const res = await fetch("http://localhost:1337/api/articles", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        let result = data.data.map((article: Article) => {
-          return {
-            params: { slug: article.attributes.slug },
-          };
-        });
-
-        console.log(result);
-
-        return result;
-      });
-  } catch (errorArticles) {
-    return { props: { errorArticles } };
-  }
-}
-
 export async function getPostData(queries: any) {
   console.log(`http://localhost:1337/api/articles?${qs.stringify(queries)}`);
   const res = await fetch(

@@ -1,9 +1,8 @@
-import { GetStaticPropsResult, NextPage } from "next";
 import React from "react";
 import Display from "@components/Display";
 import { Flex } from "@components/Flex";
-import { getAllPostIds, getPostData } from "helpers";
-import { Article, BlogParams } from "@constants/types";
+import { getPostData } from "helpers";
+import { Article } from "@constants/types";
 
 export default function BlogPost(props: { postData: Article }) {
   console.log(props.postData);
@@ -26,7 +25,7 @@ export async function getStaticPaths() {
 
   const paths = posts.data.map((article: Article) => {
     return {
-      params: { slug: article.attributes.slug, id: article.id },
+      params: { slug: article.attributes.slug },
     };
   });
 
