@@ -1,5 +1,4 @@
 import { RefObject, useEffect } from "react";
-import { allArticles, Article } from "@constants/types";
 import qs from "qs";
 
 export function useDetectOutsideClick(
