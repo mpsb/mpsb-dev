@@ -53,6 +53,9 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "createdDate": {
+      "type": "date"
     }
   }
 }
