@@ -3,19 +3,18 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import { BREAKPOINTS } from "@constants/index";
 import { MobileMenuProps } from "@constants/types";
 import { useDetectOutsideClick } from "helpers";
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
   top: 150px;
-  right: 0%;
   position: fixed;
-  width: 100%;
+  width: 79%;
   transition: 0.5s ease;
   background: white;
   z-index: 6;
   border: 2px solid black;
+  right: 10.5%;
 `;
 
 const StyledUl = styled.ul`
