@@ -44,6 +44,7 @@ export interface GridProps extends ContainerProps {
 export type Article = {
   id: number;
   attributes: {
+    blocks: Array<ArticleBlock>;
     createdAt: string;
     description: string;
     publishedAt: string;
@@ -51,6 +52,11 @@ export type Article = {
     title: string;
     updatedAt: string;
   };
+};
+
+export type ArticleBlock = {
+  id: number;
+  body: string;
 };
 
 export type ArticleMeta = {
