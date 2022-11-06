@@ -9,12 +9,14 @@ import { useDetectOutsideClick } from "helpers";
 const MobileMenuContainer = styled.div<MobileMenuProps>`
   top: 150px;
   position: fixed;
-  width: 79%;
+  width: 80%;
   transition: 0.5s ease;
   background: white;
   z-index: 6;
   border: 2px solid black;
   right: 10.5%;
+  -webkit-box-shadow: 0px 10px 10px 5px #989898;
+  box-shadow: 0px 10px 25px 5px #989898;
 `;
 
 const StyledUl = styled.ul`
@@ -31,6 +33,12 @@ const StyledUl = styled.ul`
 const StyledLi = styled.li`
   display: inline;
   cursor: pointer;
+  transition: 0.2s ease;
+  scale: 0.9;
+
+  :hover {
+    scale: 1;
+  }
 `;
 
 const SocialLinksContainer = styled.div`
@@ -73,71 +81,73 @@ export default function MobileMenu({
   useDetectOutsideClick(menuContainerRef, handleMenuItemClick, isOpen);
 
   return (
-    <MotionMobileMenuContainer
-      variants={motionVariants}
-      animate={isOpen ? "visible" : "invisible"}
-      transition={{ duration: 0.2 }}
-      isOpen={isOpen}
-      ref={menuContainerRef}
-    >
-      <MotionStyledUl
-        variants={menuItemsMotionVariants}
-        transition={{ delay: 0.2 }}
+    <>
+      <MotionMobileMenuContainer
+        variants={motionVariants}
+        animate={isOpen ? "visible" : "invisible"}
+        transition={{ duration: 0.2 }}
+        isOpen={isOpen}
+        ref={menuContainerRef}
       >
-        <StyledLi onClick={handleMenuItemClick}>
-          <Link href="/about">about</Link>
-        </StyledLi>
-        <StyledLi onClick={handleMenuItemClick}>
-          <Link href="/blog">blog</Link>
-        </StyledLi>
-        <StyledLi onClick={handleMenuItemClick}>
-          <Link href="/work">work</Link>
-        </StyledLi>
-      </MotionStyledUl>
-      <MotionSocialLinksContainer variants={menuItemsMotionVariants}>
-        <StyledLi>
-          <Link href="https://www.github.com/mpsb" passHref>
-            <a target="_blank">
-              <Image
-                src="/brand/github.png"
-                alt="Link to Matthew's github."
-                layout="fixed"
-                width={32}
-                height={32}
-              />
-            </a>
-          </Link>
-        </StyledLi>
-        <StyledLi>
-          <Link
-            href="https://www.linkedin.com/in/matthew-b-6614a811b/"
-            passHref
-          >
-            <a target="_blank">
-              <Image
-                src="/brand/linkedin.png"
-                alt="Link to Matthew's LinkedIn."
-                layout="fixed"
-                width={32}
-                height={32}
-              />
-            </a>
-          </Link>
-        </StyledLi>
-        <StyledLi>
-          <Link href="https://twitter.com/_mpsb" passHref>
-            <a target="_blank">
-              <Image
-                src="/brand/twitter.png"
-                alt="Link to Matthew's Twitter."
-                layout="fixed"
-                width={32}
-                height={32}
-              />
-            </a>
-          </Link>
-        </StyledLi>
-      </MotionSocialLinksContainer>
-    </MotionMobileMenuContainer>
+        <MotionStyledUl
+          variants={menuItemsMotionVariants}
+          transition={{ delay: 0.2 }}
+        >
+          <StyledLi onClick={handleMenuItemClick}>
+            <Link href="/about">about</Link>
+          </StyledLi>
+          <StyledLi onClick={handleMenuItemClick}>
+            <Link href="/blog">blog</Link>
+          </StyledLi>
+          <StyledLi onClick={handleMenuItemClick}>
+            <Link href="/work">work</Link>
+          </StyledLi>
+        </MotionStyledUl>
+        <MotionSocialLinksContainer variants={menuItemsMotionVariants}>
+          <StyledLi>
+            <Link href="https://www.github.com/mpsb" passHref>
+              <a target="_blank">
+                <Image
+                  src="/brand/github.png"
+                  alt="Link to Matthew's github."
+                  layout="fixed"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
+          </StyledLi>
+          <StyledLi>
+            <Link
+              href="https://www.linkedin.com/in/matthew-b-6614a811b/"
+              passHref
+            >
+              <a target="_blank">
+                <Image
+                  src="/brand/linkedin.png"
+                  alt="Link to Matthew's LinkedIn."
+                  layout="fixed"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
+          </StyledLi>
+          <StyledLi>
+            <Link href="https://twitter.com/_mpsb" passHref>
+              <a target="_blank">
+                <Image
+                  src="/brand/twitter.png"
+                  alt="Link to Matthew's Twitter."
+                  layout="fixed"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
+          </StyledLi>
+        </MotionSocialLinksContainer>
+      </MotionMobileMenuContainer>
+    </>
   );
 }

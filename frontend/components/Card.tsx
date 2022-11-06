@@ -1,5 +1,6 @@
 import { ContainerProps } from "@constants/types";
 import React, { HTMLAttributes } from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -16,14 +17,22 @@ const StyledCard = styled.div`
   }
 `;
 
+const MotionStyledCard = motion(StyledCard);
+
 export default function Card({
   children,
   onClick,
   className,
 }: HTMLAttributes<HTMLDivElement> & ContainerProps) {
   return (
-    <StyledCard onClick={onClick} className={className}>
+    <MotionStyledCard
+      onClick={onClick}
+      className={className}
+      style={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       {children}
-    </StyledCard>
+    </MotionStyledCard>
   );
 }

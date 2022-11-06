@@ -15,8 +15,9 @@ cursor: pointer;
 transition: 0.2s ease;
 
 :hover {
-    opacity: 0.7;
-    border: 2px rgba(0,0,0,0.7) solid;
+  transform: perspective(200px) translateZ(5px);
+  -webkit-box-shadow: 0px 5px 5px 1px #c8c8c8;
+  box-shadow: 0px 5px 5px 1px #c8c8c8;
 }
 
 @media only screen and (max-width: ${BREAKPOINTS.xs}px) {

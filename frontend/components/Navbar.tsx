@@ -35,10 +35,22 @@ const StyledUl = styled.ul`
 const StyledLi = styled.li`
   display: inline;
   cursor: pointer;
+  transition: 0.2s ease;
+  scale: 0.9;
+
+  :hover {
+    scale: 1;
+  }
 `;
 
 const StyledStrong = styled.strong`
   cursor: pointer;
+  scale: 0.9;
+  transition: 0.2s ease;
+
+  :hover {
+    scale: 1;
+  }
 `;
 
 export default function Navbar() {

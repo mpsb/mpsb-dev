@@ -13,6 +13,7 @@ const AccordionContainer = styled.button`
   border: none;
   background-color: transparent;
   padding: 0;
+  scale: 0.9;
 
   @media only screen and (max-width: ${BREAKPOINTS.sm}px) {
     display: flex;
@@ -23,7 +24,7 @@ const AccordionContainer = styled.button`
   }
 
   :hover {
-    opacity: 0.7;
+    scale: 1;
   }
 `;
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { TextProps } from "@constants/types";
 import { BREAKPOINTS } from "@constants/index";
@@ -16,6 +17,16 @@ const StyledHeading = styled.h1`
   }
 `;
 
+const MotionStyledHeading = motion(StyledHeading);
+
 export default function Heading({ children }: TextProps) {
-  return <StyledHeading>{children}</StyledHeading>;
+  return (
+    <MotionStyledHeading
+      initial={{ opacity: 0, translateY: -10 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      {children}
+    </MotionStyledHeading>
+  );
 }

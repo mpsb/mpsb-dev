@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { FlexProps } from "@constants/types";
 import { BREAKPOINTS } from "@constants/index";
@@ -25,6 +26,8 @@ margin: ${props.margin ? props.margin : "0"};
 `}
 `;
 
+const MotionStyledFlex = motion(StyledFlex);
+
 export function Flex({
   className,
   flexDirection = "row",
@@ -38,7 +41,7 @@ export function Flex({
   children,
 }: FlexProps) {
   return (
-    <StyledFlex
+    <MotionStyledFlex
       className={className}
       flexDirection={flexDirection}
       gap={gap}
@@ -48,8 +51,11 @@ export function Flex({
       height={height}
       padding={padding}
       margin={margin}
+      style={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       {children}
-    </StyledFlex>
+    </MotionStyledFlex>
   );
 }
