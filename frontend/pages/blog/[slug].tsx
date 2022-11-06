@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import Subheading from "@components/Subheading";
+import Body from "@components/Body";
 import Display from "@components/Display";
 import { Flex } from "@components/Flex";
 import { getPostData } from "helpers";
@@ -13,11 +13,11 @@ export default function BlogPost(props: { postData: Article }) {
     <>
       <Flex flexDirection="column" margin="48px 0px">
         <Display>{props.postData.attributes.title}</Display>
-        <Subheading>
+        <Body>
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {props.postData.attributes.blocks[0].body}
           </ReactMarkdown>
-        </Subheading>
+        </Body>
       </Flex>
     </>
   );
