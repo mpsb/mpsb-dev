@@ -2,12 +2,14 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import { Flex } from "@components/Flex";
+import Body from "@components/Body";
 import Display from "@components/Display";
 import Card from "@components/Card";
 import Subheading from "@components/Subheading";
 import Heading from "@components/Heading";
 import Grid from "@components/Grid";
 import { Article } from "@constants/types";
+import { formatBlogPostDate } from "@helpers";
 
 const Blog: NextPage = (props: any) => {
   const router = useRouter();
@@ -50,6 +52,7 @@ const Blog: NextPage = (props: any) => {
                 <Subheading textAlign="center">
                   {blog.attributes.description}
                 </Subheading>
+                <Body>{formatBlogPostDate(blog.attributes.createdDate)}</Body>
               </Flex>
             </Card>
           ))}

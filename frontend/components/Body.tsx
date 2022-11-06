@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { TextProps } from "@constants/types";
 import { BREAKPOINTS } from "@constants/index";
 
-const StyledBody = styled.p<TextProps>`
+const StyledBody = styled.span<TextProps>`
   ${(props) => `
 font-size: 20px;
   font-weight: 400;

@@ -4,15 +4,19 @@ import rehypeRaw from "rehype-raw";
 import Body from "@components/Body";
 import Display from "@components/Display";
 import { Flex } from "@components/Flex";
-import { getPostData } from "helpers";
+import Subheading from "@components/Subheading";
+import { formatBlogPostDate, getPostData } from "helpers";
 import { Article } from "@constants/types";
 
 export default function BlogPost(props: { postData: Article }) {
   console.log(props.postData);
   return (
     <>
-      <Flex flexDirection="column" margin="48px 0px">
+      <Flex flexDirection="column" margin="48px 0px" gap={32}>
         <Display>{props.postData.attributes.title}</Display>
+        <Subheading>
+          M.P. Bilo, {formatBlogPostDate(props.postData.attributes.createdDate)}
+        </Subheading>
         <Body>
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {props.postData.attributes.blocks[0].body}

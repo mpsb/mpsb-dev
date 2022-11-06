@@ -88,3 +88,14 @@ export function processInputAreas(areas: string | undefined) {
 
   return { gridAreaClasses, responsiveGridTemplateAreas };
 }
+
+export function formatBlogPostDate(inputDate: string) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  let date = new Date(inputDate);
+
+  return date.toLocaleDateString("en-US", options);
+}
