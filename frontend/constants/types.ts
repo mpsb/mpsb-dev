@@ -22,6 +22,7 @@ export interface FlexProps {
   alignItems?: string;
   justifyContent?: string;
   width?: string;
+  height?: string;
   padding?: string;
   margin?: string;
   children: ReactNode;

@@ -9,8 +9,12 @@ const StyledDisplay = styled.h1`
   letter-spacing: -0.045em;
   margin: 0;
 
-  @media only screen and (max-width: ${BREAKPOINTS.xs}px) {
+  @media only screen and (max-width: ${BREAKPOINTS.sm}px) {
     font-size: 56px;
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.xs}px) {
+    font-size: 40px;
   }
 `;
 

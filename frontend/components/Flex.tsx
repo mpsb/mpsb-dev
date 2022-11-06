@@ -11,6 +11,7 @@ gap: ${props.gap}px;
 align-items: ${props.alignItems};
 justify-content: ${props.justifyContent};
 width: ${props.width};
+height: ${props.height};
 padding: ${props.padding ? props.padding : "0px 64px"};
 margin: ${props.margin ? props.margin : "0"};
 
@@ -31,6 +32,7 @@ export function Flex({
   alignItems,
   justifyContent,
   width,
+  height,
   padding,
   margin,
   children,
@@ -43,6 +45,7 @@ export function Flex({
       alignItems={alignItems}
       justifyContent={justifyContent}
       width={width}
+      height={height}
       padding={padding}
       margin={margin}
     >

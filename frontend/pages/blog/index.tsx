@@ -45,6 +45,8 @@ const Blog: NextPage = (props: any) => {
               <Flex
                 flexDirection="column"
                 alignItems="center"
+                justifyContent="space-between"
+                height="100%"
                 padding="0"
                 gap={16}
               >
