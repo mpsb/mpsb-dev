@@ -14,9 +14,7 @@ import { formatBlogPostDate } from "@helpers";
 const Blog: NextPage = (props: any) => {
   const router = useRouter();
 
-  props.allArticles.data.sort(
-    (a: Article, b: Article) => b.id - a.id
-  );
+  props.allArticles.data.sort((a: Article, b: Article) => b.id - a.id);
 
   return (
     <>

@@ -74,3 +74,31 @@ export type BlogParams = {
   slug: string;
   id: number;
 };
+
+export type Work = {
+  id: number;
+  attributes: {
+    title: string;
+    description: string;
+    link: string;
+    category: string;
+    cover: string;
+  };
+};
+
+export type WorkResponse = {
+  id: number;
+  attributes: {
+    title: string;
+    description: string;
+    link: string;
+    category: string;
+    cover: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+  };
+};
