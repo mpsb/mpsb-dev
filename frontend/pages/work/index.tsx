@@ -16,7 +16,7 @@ const Work: NextPage = () => {
         margin="48px 0px"
       >
         <Display>WORK</Display>
-        <Subheading>Some stuff I created.</Subheading>
+        <Subheading>Stuff I helped create.</Subheading>
       </Flex>
       <Flex>
         <Grid columns={3} gap={16}>
