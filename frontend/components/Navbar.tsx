@@ -61,7 +61,7 @@ export default function Navbar() {
       </Link>
       <StyledUl>
         <StyledLi>
-          <Link href="/about">about</Link>
+          <Link href="/about">the part-time cto</Link>
         </StyledLi>
         <StyledLi>
           <Link href="/blog">blog</Link>

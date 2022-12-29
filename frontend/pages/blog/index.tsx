@@ -24,7 +24,7 @@ const Blog: NextPage = (props: any) => {
         margin="48px 0px"
       >
         <Display>BLOG</Display>
-        <Subheading>Musings of a software engineer.</Subheading>
+        <Subheading>Musings.</Subheading>
       </Flex>
       <Flex>
         <Grid

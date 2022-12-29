@@ -19,18 +19,18 @@ const Home: NextPage = () => {
         >
           <Display>M.P. BILO</Display>
           <Subheading>
-            front-end developer
+            Full-time dev.
             <br />
-            with a passion for designing
-            <br />
-            beautiful user experiences.
+            Part-time CTO.
+            <br /><br />
+            What else do I do?
           </Subheading>
           <Flex gap={8} padding="0" margin="32px 0px">
             <Button buttonType="primary" onClick={() => router.push("/about")}>
-              who you?
+              I podcast.
             </Button>
-            <Button buttonType="secondary" onClick={() => router.push("/work")}>
-              you did what?
+            <Button buttonType="secondary" onClick={() => router.push("/blog")}>
+             I blog.
             </Button>
           </Flex>
         </Flex>

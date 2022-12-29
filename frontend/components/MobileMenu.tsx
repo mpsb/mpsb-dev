@@ -94,7 +94,7 @@ export default function MobileMenu({
           transition={{ delay: 0.2 }}
         >
           <StyledLi onClick={handleMenuItemClick}>
-            <Link href="/about">about</Link>
+            <Link href="/about">the part-time cto</Link>
           </StyledLi>
           <StyledLi onClick={handleMenuItemClick}>
             <Link href="/blog">blog</Link>
